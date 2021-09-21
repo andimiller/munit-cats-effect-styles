@@ -2,8 +2,6 @@ import xerial.sbt.Sonatype._
 
 name := "munit-cats-effect-styles"
 
-version := "0.1"
-
 scalaVersion := "3.0.2"
 
 val munitCatsEffectVersion = "1.0.5"
@@ -13,13 +11,21 @@ val commonSettings         = List(
   organization               := "net.andimiller",
   crossPaths                 := true,
   testFrameworks += new TestFramework("munit.Framework"),
+  version                    := "1.0.0",
   scalaVersion               := "3.0.2",
   ThisBuild / scalafmtConfig := file(".scalafmt.conf"),
-  useGpg := true,
-  publishTo := sonatypePublishTo.value,
-  licenses := Seq("MIT" -> url("https://opensource.org/licenses/MIT")),
-  sonatypeProjectHosting := Some(GitHubHosting("andimiller", "munit-cats-effect-styles", "andi at andimiller dot net")),
-  developers := List(Developer(id = "andimiller", name = "Andi Miller", email = "andi@andimiller.net", url = url("http://andimiller.net"))),
+  useGpg                     := true,
+  publishTo                  := sonatypePublishTo.value,
+  licenses                   := Seq("MIT" -> url("https://opensource.org/licenses/MIT")),
+  sonatypeProjectHosting     := Some(GitHubHosting("andimiller", "munit-cats-effect-styles", "andi at andimiller dot net")),
+  developers                 := List(
+    Developer(
+      id = "andimiller",
+      name = "Andi Miller",
+      email = "andi@andimiller.net",
+      url = url("http://andimiller.net")
+    )
+  )
 )
 
 lazy val root = project
