@@ -16,7 +16,8 @@ trait FlatIOSpec extends CatsEffectSuite with ScalaCheckSuite {
     @targetName("inIO")
     def in(body: => IO[Any])(using loc: munit.Location) = test(s"${s._1} should ${s._2}")(body)(loc)
 
-    @targetName("inProp") def in(body: => Prop)(using loc: munit.Location): Unit =
+    @targetName("inProp")
+    def in(body: => Prop)(using loc: munit.Location): Unit =
       property(s"${s._1} should ${s._2}")(body)(loc)
 
 }
