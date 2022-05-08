@@ -30,26 +30,26 @@ val commonSettings         = List(
 
 lazy val root = project
   .in(file("."))
-  .aggregate(ce2, ce3)
+  .aggregate(ce2.js, ce2.jvm, ce3.js, ce3.jvm)
   .settings(
     crossScalaVersions := Nil,
     publish / skip     := true
   )
 
-lazy val ce2 = project
+lazy val ce2 = crossProject(JSPlatform, JVMPlatform)
   .in(file("modules/ce2"))
   .settings(commonSettings)
   .settings(
-    name                                   := "munit-cats-effect-2-styles",
-    libraryDependencies += "org.typelevel" %% "munit-cats-effect-2" % munitCatsEffectVersion,
-    libraryDependencies += "org.scalameta" %% "munit-scalacheck"    % "0.7.29"
+    name                                    := "munit-cats-effect-2-styles",
+    libraryDependencies += "org.typelevel" %%% "munit-cats-effect-2" % munitCatsEffectVersion,
+    libraryDependencies += "org.scalameta" %%% "munit-scalacheck"    % "0.7.29"
   )
 
-lazy val ce3 = project
+lazy val ce3 = crossProject(JSPlatform, JVMPlatform)
   .in(file("modules/ce3"))
   .settings(commonSettings)
   .settings(
-    name                                   := "munit-cats-effect-3-styles",
-    libraryDependencies += "org.typelevel" %% "munit-cats-effect-3" % munitCatsEffectVersion,
-    libraryDependencies += "org.scalameta" %% "munit-scalacheck"    % "0.7.29"
+    name                                    := "munit-cats-effect-3-styles",
+    libraryDependencies += "org.typelevel" %%% "munit-cats-effect-3" % munitCatsEffectVersion,
+    libraryDependencies += "org.scalameta" %%% "munit-scalacheck"    % "0.7.29"
   )
