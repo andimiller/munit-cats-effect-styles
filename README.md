@@ -4,7 +4,7 @@ This is a library for adding ScalaTest style testing layouts for munit with cats
 
 This may seem quite opinionated, and it is, this is just the way I like to test things, although I am open to expanding it.
 
-It's cross published for Scala 2.12, 2.13 and 3, and cats-effect 2 and 3.
+It's cross published for Scala 2.12, 2.13 and 3, scala JVM and scala JS, and cats-effect 2 and 3.
 
 ## Dependencies
 
@@ -12,10 +12,10 @@ It's published to maven central and only depends on `munit-cats-effect`.
 
 ```scala
 // for cats-effect-2
-libraryDependencies += "net.andimiller" %% "munit-cats-effect-2-styles" % "1.0.0" % Test
+libraryDependencies += "net.andimiller" %%% "munit-cats-effect-2-styles" % "1.0.0" % Test
 testFrameworks += new TestFramework("munit.Framework")
 // for cats-effect-3
-libraryDependencies += "net.andimiller" %% "munit-cats-effect-3-styles" % "1.0.0" % Test
+libraryDependencies += "net.andimiller" %%% "munit-cats-effect-3-styles" % "1.0.0" % Test
 testFrameworks += new TestFramework("munit.Framework")
 ```
 
