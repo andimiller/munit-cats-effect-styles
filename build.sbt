@@ -31,6 +31,7 @@ val commonSettings         = List(
 lazy val root = project
   .in(file("."))
   .aggregate(ce2.js, ce2.jvm, ce3.js, ce3.jvm)
+  .settings(commonSettings)
   .settings(
     crossScalaVersions := Nil,
     publish / skip     := true

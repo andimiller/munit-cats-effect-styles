@@ -12,10 +12,10 @@ It's published to maven central and only depends on `munit-cats-effect`.
 
 ```scala
 // for cats-effect-2
-libraryDependencies += "net.andimiller" %%% "munit-cats-effect-2-styles" % "1.0.0" % Test
+libraryDependencies += "net.andimiller" %%% "munit-cats-effect-2-styles" % "1.0.2" % Test
 testFrameworks += new TestFramework("munit.Framework")
 // for cats-effect-3
-libraryDependencies += "net.andimiller" %%% "munit-cats-effect-3-styles" % "1.0.0" % Test
+libraryDependencies += "net.andimiller" %%% "munit-cats-effect-3-styles" % "1.0.2" % Test
 testFrameworks += new TestFramework("munit.Framework")
 ```
 
