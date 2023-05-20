@@ -2,17 +2,15 @@ import xerial.sbt.Sonatype._
 
 name := "munit-cats-effect-styles"
 
-scalaVersion := "3.0.2"
-
-val munitCatsEffectVersion = "1.0.5"
-val scalaVersions          = List("2.13.6", "2.12.14", "3.0.2")
+val munitCatsEffectVersion = "2.0.0-M3"
+val scalaVersions          = List("2.13.6", "2.12.14", "3.1.2")
 val commonSettings         = List(
   crossScalaVersions         := scalaVersions,
   organization               := "net.andimiller",
   crossPaths                 := true,
   testFrameworks += new TestFramework("munit.Framework"),
-  version                    := "1.0.1",
-  scalaVersion               := "3.0.2",
+  version                    := "2.0.0-M1",
+  scalaVersion               := "3.1.2",
   ThisBuild / scalafmtConfig := file(".scalafmt.conf"),
   useGpg                     := true,
   publishTo                  := sonatypePublishTo.value,
@@ -28,28 +26,11 @@ val commonSettings         = List(
   )
 )
 
-lazy val root = project
-  .in(file("."))
-  .aggregate(ce2.js, ce2.jvm, ce3.js, ce3.jvm)
-  .settings(
-    crossScalaVersions := Nil,
-    publish / skip     := true
-  )
-
-lazy val ce2 = crossProject(JSPlatform, JVMPlatform)
-  .in(file("modules/ce2"))
+lazy val core = crossProject(JSPlatform, JVMPlatform, NativePlatform)
+  .in(file("modules/core"))
   .settings(commonSettings)
   .settings(
-    name                                    := "munit-cats-effect-2-styles",
-    libraryDependencies += "org.typelevel" %%% "munit-cats-effect-2" % munitCatsEffectVersion,
-    libraryDependencies += "org.scalameta" %%% "munit-scalacheck"    % "0.7.29"
-  )
-
-lazy val ce3 = crossProject(JSPlatform, JVMPlatform)
-  .in(file("modules/ce3"))
-  .settings(commonSettings)
-  .settings(
-    name                                    := "munit-cats-effect-3-styles",
-    libraryDependencies += "org.typelevel" %%% "munit-cats-effect-3" % munitCatsEffectVersion,
-    libraryDependencies += "org.scalameta" %%% "munit-scalacheck"    % "0.7.29"
+    name                                    := "munit-cats-effect-styles",
+    libraryDependencies += "org.typelevel" %%% "munit-cats-effect" % munitCatsEffectVersion,
+    libraryDependencies += "org.scalameta" %%% "munit-scalacheck"  % "1.0.0-M7"
   )

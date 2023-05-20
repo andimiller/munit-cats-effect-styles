@@ -19,6 +19,13 @@ libraryDependencies += "net.andimiller" %%% "munit-cats-effect-3-styles" % "1.0.
 testFrameworks += new TestFramework("munit.Framework")
 ```
 
+For `scala-native` support, or the latest munit milestones, please use the non-versioned dependency, which is cats-effect-3 only:
+
+```scala
+libraryDependencies += "net.andimiller" %%% "munit-cats-effect-styles" % "2.0.0-M1" % Test
+testFrameworks += new TestFramework("munit.Framework")
+```
+
 ## Styles
 ### FlatSpec
 
